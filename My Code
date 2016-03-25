@@ -1,0 +1,82 @@
+/* Loops and Functions by Silvia Rodriguez */
+
+
+#include <stdio.h>
+
+float Average(float a,float b, float c)
+{
+	/* Function which calculates the average of three values input by the user */
+	float d = (a+b+c)/3;
+	return d; 
+}
+
+int Factorial (int s)
+{
+   	/* Function which calcultes the factorial of input value */
+   	int fact = 1;
+   	int m;
+    for (m=1; m <= s; m++)
+    {
+    	fact *= m; 
+    } 
+    return fact;
+}
+
+int SquareRoot(int r)
+{
+	/* Function which calculates square root of input value by checking the input value and then iterating */
+	int z=0;
+	int p=0;
+	int result=-1;
+
+while (r>p)
+{
+		p=z*z;
+		if (r==p)
+			result=z;
+		else z++;
+}
+return result;	
+}
+
+int main(void)
+{
+	/* Main function which asks user what function he/she wants to use until "Exit" is picked */
+	int i, s, res1, r, res2;
+	float x, y, z, d;
+
+	do{
+	    printf("Select the function you want to use:\n 1. Average\n 2.Factorial\n 3.Square Root\n 4.Exit\n");
+	    scanf("%d", &i);
+      	switch (i) {
+			case 1:			 	 	
+			    printf("Enter three numbers: \n");
+			    scanf("%f %f %f", &x, &y, &z);
+			 	d=Average(x,y,z); // calls Average function
+			 	printf("Average = %f \n", d);
+			 	break;
+			case 2:
+
+			 	printf("Enter a number to calculate its factorial\n");
+  				scanf("%d", &s);
+  				res1 = Factorial(s); // calls Factorial function
+  				printf("Factorial = %d\n", res1);
+ 
+			 	break;
+
+			case 3:
+				printf("Enter a number to calculate its square root\n");
+				scanf("%d", &r);
+				res2 = SquareRoot(r); // calls SquareRoot function
+				printf("Square Root = %d\n",res2);
+				break;
+			case 4:
+				printf("Exit\n");
+				break;
+			default:
+				break;
+			}
+ 	}while(i!=4);
+	    return 0;
+}
+/*END*/
